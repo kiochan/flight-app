@@ -1,15 +1,14 @@
-import { Component, inject, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TabbedPaneComponent } from '../tabbed-pane/tabbed-pane.component';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-tab',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './tab.component.html',
-  styleUrls: ['./tab.component.css'],
+  styleUrl: './tab.component.css',
 })
 export class TabComponent {
-  @Input() title = '';
-  visible = true;
+  title = input<string>('');
+
+  visible = false;
 }
