@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, WritableSignal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Flight } from '../../model/flight';
 import { DefaultFlightService } from './default-flight.service';
@@ -8,7 +8,7 @@ import { DefaultFlightService } from './default-flight.service';
   useClass: DefaultFlightService,
 })
 export abstract class FlightService {
-  abstract flights: Flight[];
+  abstract flights: WritableSignal<Flight[]>;
   abstract find(from: string, to: string): Observable<Flight[]>;
   abstract findById(id: string): Observable<Flight>;
   abstract delay(): void;

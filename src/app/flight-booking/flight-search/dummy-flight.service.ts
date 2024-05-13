@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Flight } from '../../model/flight';
 import { FlightService } from './flight.service';
 
 @Injectable()
 export class DummyFlightService implements FlightService {
-  flights: Flight[] = [];
+  flights = signal<Flight[]>([]);
 
   load(from: string, to: string): void {
     this.find(from, to).subscribe((flights) => {
-      this.flights = flights;
+      this.flights.set(flights);
     });
   }
 
