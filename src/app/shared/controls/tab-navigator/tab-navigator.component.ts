@@ -23,17 +23,6 @@ export class TabNavigatorComponent {
   pageCount = input(0);
   pageChange = output<number>();
 
-  service = inject(TabbedPaneService);
-
-  ngOnInit(): void {
-    this.service.pageCount.subscribe((pageCount) => {
-      this.pageCount = pageCount;
-    });
-    this.service.currentPage.subscribe((page) => {
-      this.page = page;
-    });
-  }
-
   prev(): void {
     let page = this.page();
     page--;
