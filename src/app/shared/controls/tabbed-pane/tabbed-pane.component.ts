@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
 import { TabNavigatorComponent } from '../tab-navigator/tab-navigator.component';
+import { TabbedPaneService } from './tabbed-pane.service';
 
 @Component({
   selector: 'app-tabbed-pane',

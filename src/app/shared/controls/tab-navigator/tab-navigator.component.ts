@@ -8,6 +8,7 @@ import {
   output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TabbedPaneService } from '../tabbed-pane/tabbed-pane.service';
 
 @Component({
   selector: 'app-tab-navigator',
@@ -21,6 +22,17 @@ export class TabNavigatorComponent {
   page = input(0);
   pageCount = input(0);
   pageChange = output<number>();
+
+  service = inject(TabbedPaneService);
+
+  ngOnInit(): void {
+    this.service.pageCount.subscribe((pageCount) => {
+      this.pageCount = pageCount;
+    });
+    this.service.currentPage.subscribe((page) => {
+      this.page = page;
+    });
+  }
 
   prev(): void {
     let page = this.page();
