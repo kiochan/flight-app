@@ -1,12 +1,13 @@
 import { AfterContentInit, Component, contentChildren } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
+import { TabNavigatorComponent } from "../tab-navigator/tab-navigator.component";
 
 @Component({
-  selector: 'app-tabbed-pane',
-  standalone: true,
-  imports: [],
-  templateUrl: './tabbed-pane.component.html',
-  styleUrl: './tabbed-pane.component.css',
+    selector: 'app-tabbed-pane',
+    standalone: true,
+    templateUrl: './tabbed-pane.component.html',
+    styleUrl: './tabbed-pane.component.css',
+    imports: [TabNavigatorComponent]
 })
 export class TabbedPaneComponent implements AfterContentInit {
   activeTab: TabComponent | undefined;
