@@ -1,31 +1,42 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  input,
+  output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tab-navigator',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './tab-navigator.component.html',
   styleUrls: ['./tab-navigator.component.css'],
 })
 export class TabNavigatorComponent {
-  @Input() page = 0;
-  @Input() pageCount = 0;
-  @Output() pageChange = new EventEmitter<number>();
+  page = input(0);
+  pageCount = input(0);
+  pageChange = output<number>();
 
   prev(): void {
-    this.page--;
-    if (this.page < 0) {
-      this.page = this.pageCount - 1;
+    let page = this.page();
+    page--;
+    if (page < 0) {
+      page = this.pageCount() - 1;
     }
-    this.pageChange.emit(this.page);
+    this.pageChange.emit(page);
   }
 
   next(): void {
-    this.page++;
-    if (this.page >= this.pageCount) {
-      this.page = 0;
+    let page = this.page();
+    page++;
+    if (page >= this.pageCount()) {
+      page = 0;
     }
-    this.pageChange.emit(this.page);
+    this.pageChange.emit(page);
   }
 }

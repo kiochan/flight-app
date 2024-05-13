@@ -1,7 +1,7 @@
 <div class="tabbed-pane">
   <div class="navigation">
     @for (tab of tabs(); track tab.title) {
-    <span class="tab-link" [class.active]="tab == activeTab">
+    <span class="tab-link" [class.active]="tab === activeTab()">
       <a (click)="activate(tab)">{{ tab.title() }}</a>
     </span>
     }
@@ -12,8 +12,8 @@
   </div>
 
   <app-tab-navigator
-    [page]="this.currentPage"
-    [pageCount]="this.tabs().length"
+    [page]="currentPage()"
+    [pageCount]="tabs().length"
     (pageChange)="pageChange($event)"
   >
   </app-tab-navigator>

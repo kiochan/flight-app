@@ -1,8 +1,14 @@
-import { Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  signal,
+} from '@angular/core';
 
 @Component({
   selector: 'app-tab',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
   templateUrl: './tab.component.html',
   styleUrl: './tab.component.css',
@@ -10,5 +16,5 @@ import { Component, input } from '@angular/core';
 export class TabComponent {
   title = input<string>('');
 
-  visible = false;
+  visible = signal(false);
 }
