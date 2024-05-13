@@ -13,7 +13,7 @@
 
   <app-tab-navigator
     [page]="this.currentPage"
-    [pageCount]="this.tabs.length"
+    [pageCount]="this.tabs().length"
     (pageChange)="pageChange($event)"
   >
   </app-tab-navigator>
