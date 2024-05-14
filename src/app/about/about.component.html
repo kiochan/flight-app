@@ -23,4 +23,10 @@
   back to home
 </button>
 
-<button (click)="backToHome.confirm.emit()">back to home NOW!</button>
+<button (click)="backToHome.confirm.emit()" [appTooltip]="tooltipTemp">
+  back to home NOW!
+</button>
+
+<ng-template #tooltipTemp>
+  <span>route to home withot confirm</span>
+</ng-template>

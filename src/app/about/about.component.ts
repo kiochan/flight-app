@@ -4,6 +4,7 @@ import { TabComponent } from '../shared/controls/tab/tab.component';
 import { TabbedPaneComponent } from '../shared/controls/tabbed-pane/tabbed-pane.component';
 import { ClickWithWarningDirective } from '../shared/controls/click-with-warning.directive';
 import { Router } from '@angular/router';
+import { TooltipDirective } from '../shared/tooltip.directive';
 
 @Component({
   selector: 'app-about',
@@ -15,6 +16,7 @@ import { Router } from '@angular/router';
     TabComponent,
     TabbedPaneComponent,
     ClickWithWarningDirective,
+    TooltipDirective,
   ],
 })
 export class AboutComponent {
