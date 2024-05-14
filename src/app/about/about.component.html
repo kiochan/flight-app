@@ -13,3 +13,14 @@
     <p>No cancelled flights!</p>
   </app-tab>
 </app-tabbed-pane>
+
+<button
+  appClickWithWarning
+  messege="Do you want to back to home?"
+  (confirm)="warn()"
+  #backToHome="clickWithWarning"
+>
+  back to home
+</button>
+
+<button (click)="backToHome.confirm.emit()">back to home NOW!</button>
