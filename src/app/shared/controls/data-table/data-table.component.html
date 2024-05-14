@@ -1,0 +1,12 @@
+<table class="table">
+  <tr *ngFor="let row of data()">
+    <td *ngFor="let field of fields()">
+      <ng-container
+        *ngTemplateOutlet="
+          field.templateRef;
+          context: { $implicit: row[field.propName()] }
+        "
+      ></ng-container>
+    </td>
+  </tr>
+</table>

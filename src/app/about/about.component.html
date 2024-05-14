@@ -30,3 +30,11 @@
 <ng-template #tooltipTemp>
   <span>route to home withot confirm</span>
 </ng-template>
+
+<br /><br />
+
+<app-data-table [data]="data">
+  <div *appTableField="let data; as: 'id'">{{ data }}</div>
+  <div *appTableField="let data; as: 'key'">{{ data }}</div>
+  <div *appTableField="let data; as: 'value'">{{ data }}</div>
+</app-data-table>
