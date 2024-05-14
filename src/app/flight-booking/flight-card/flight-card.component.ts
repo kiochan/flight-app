@@ -6,6 +6,7 @@ import {
   inject,
   input,
   Input,
+  model,
   NgZone,
   output,
 } from '@angular/core';
@@ -31,17 +32,18 @@ export class FlightCardComponent {
   private zone = inject(NgZone);
 
   item = input(initFlight);
-  selected = input(false);
-  selectedChange = output<boolean>();
+  selected = model(false);
+  // selected = input(false);
+  // selectedChange = output();
 
   ngOnInit() {}
 
   select() {
-    this.selectedChange.emit(true);
+    this.selected.set(true);
   }
 
   deselect() {
-    this.selectedChange.emit(false);
+    this.selected.set(false);
   }
 
   edit() {
