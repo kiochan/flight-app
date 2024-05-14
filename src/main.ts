@@ -10,6 +10,8 @@ import {
 import { AppComponent } from './app/app.component';
 import { APP_ROUTES } from './app/app.routes';
 import { NextFlightsModule } from './app/next-flights/next-flights.module';
+import { LogLevel } from './app/shared/logger/log-level';
+import { provideLogger } from './app/shared/logger/provider';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -17,5 +19,8 @@ bootstrapApplication(AppComponent, {
     provideRouter(APP_ROUTES, withPreloading(PreloadAllModules)),
     importProvidersFrom(NextFlightsModule),
     importProvidersFrom(MatDialogModule),
+    provideLogger({
+      level: LogLevel.INFO,
+    }),
   ],
 });
